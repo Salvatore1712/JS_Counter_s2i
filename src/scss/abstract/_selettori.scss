@@ -1,0 +1,21 @@
+@use "../abstract/variables" as variabili;
+
+.selettore__colore {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.rosso {
+    background-color: red;
+}
+.giallo {
+    background-color: yellow;
+}
+.celeste {
+    background-color: variabili.$primary-color;
+}
+.bianco {
+    background-color: white;
+}

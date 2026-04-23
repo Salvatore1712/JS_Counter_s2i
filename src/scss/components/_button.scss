@@ -1,0 +1,15 @@
+@use "../abstract/variables" as variabili;
+
+.btn {
+    border-radius: variabili.$radius-base;
+    border: 2px solid variabili.$primary-color;
+    background: black;
+    color: variabili.$primary-color;
+    width: 100px;
+    height: 30px;
+    box-shadow: 0 0px 5px variabili.$primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

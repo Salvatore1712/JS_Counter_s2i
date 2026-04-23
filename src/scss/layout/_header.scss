@@ -1,0 +1,18 @@
+@use "../abstract/variables" as variabili;
+
+.header {
+    width: 100%;
+    border-radius: variabili.$radius-base;
+    border: 1px solid variabili.$primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    padding: 8px;
+    grid-area: header;
+
+    @media (min-width:769px) {
+        max-width: 750px;
+        margin: 0 auto;
+    }
+}

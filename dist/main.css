@@ -1,0 +1,8 @@
+.container {
+  color: white;
+  background-image: url("../../assets/img/background_big.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100dvh;
+  font-size: 16px;
+}
