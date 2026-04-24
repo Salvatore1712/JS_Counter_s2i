@@ -1,12 +1,14 @@
 // IMPORT RESET & NORMALIZE
-@use "base"; //OK
+@use "base";
 
-//mod
-@use "./pages/home" as home_page;
+//IMPORT PAGES FILES
+@use "pages";
 
-@use "layout"; //OK
+//IMPORT LAYOUT FILES
+@use "layout";
 
-//IMPORT BUTTON LAYOUT
+//IMPORT COMPONENTS FILES
 @use "components"; //OK
 
+//IMPORT ABSTACT FILES
 @use "abstract";
