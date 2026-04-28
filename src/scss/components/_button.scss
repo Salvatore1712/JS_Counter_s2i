@@ -15,6 +15,7 @@
     font-size: 40px;
     font-weight: 600;
     cursor: pointer;
+    touch-action: manipulation;
 }
 
 .light {
@@ -51,4 +52,5 @@
     font-weight: 500;
     border: none;
     cursor: pointer;
+    touch-action: manipulation;
 }
