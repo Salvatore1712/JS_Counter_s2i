@@ -2,15 +2,15 @@
 @use "../abstract/box" as box;
 
 body {
-    background-image: url("../../assets/img/background_big.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: darken;
     height: 100dvh;
     padding: 16px;
-    color: variables.$primary-color;
     font-family: variables.$font-family-base;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: white;
+    
 }
 
 .container {
@@ -19,150 +19,100 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
-
-    @media (min-width:769px) {
-        max-width: 850px;
-        margin: 16px auto;
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        gap: 8px;
-        grid-template-areas:
-        "header header header"
-        "aside main sidebar";
-        
-    }
-}
-.aside {
-    display: none;
-    padding: 8px;
-
-    @media (min-width:769px) {
-        display: block;
-        @include box.box-style;
-        grid-area: aside;
-        height: 100%;
-        margin-top: 16px;
-    }
-
-    &__title {
-        font-size: 20px;
-        font-weight: 700;
-        color: yellowgreen;
-    }
-}
-// BOX SELEZIONE COLORE TESTO
-.selettore {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 16px;
+    margin-top: 0 auto;
+    max-width: 500px;
     padding: 8px;
 }
-.remove__background {
-    border: 1px solid variables.$primary-color;
-    width: 100%;
-    height: 30px;
-    background-color: beige;
-    color: black;
-    cursor: pointer;
-    padding: 5px;
-    text-align: center;
-}
-
-// classe che rimuove lo sfondo
-.bg-off {
-    background: grey;
-}
-
 
 
 // * * * * MAIN * * * *
 .main {
-    @include box.box-style;
     width: 100%;
-    height: 60dvh;
-    margin-top: 16px;
+    height: 80dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-area: main;
-    height: 100%;
+    margin: 8px auto;
+    // border: 1px solid yellow;
+    max-width: 400px;
 
+    &__info {
+        margin-top: 8px;
+        padding: 8px;
 
-    &__bar {
-        border-bottom: 1px solid variables.$primary-color;
-        width: 100%;
-        padding: 5px;
-        display: flex;
-        justify-content: right;
-        align-items: flex-end;
-        gap: 10px;
+        &__text {
+            font-size: 1.5rem;
+            // color: white;
+        }
     }
 
 
     &__counter {
-        @include box.box-style;
         width: 95%;
-        font-size: clamp(5rem, 4rem + 2dvw, 8rem);
-        font-weight: 600;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 200px;
-    }
+        margin: 16px auto;
 
-    &__info {
-        padding: 16px;
-        line-height: 1.4;
+        &__text {
+            font-size: clamp(11rem, 11rem + 3dvw, 13rem);
+            font-weight: 600;
+            margin: 16px 0 0 0;
+            padding: 0;
+            box-sizing: border-box;
+            // color: white;
+            text-align: center;
+        }
     }
 
     &__button {
-        margin-top: 16px;
+        margin: 8px;
         width: 95%;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         max-width: 600px;
-        padding: 16px;
+        padding: 0;
+
+        &__reset {
+            width: 95%;
+        }
     }
-}
 
-//MESSAGGIO DI ALERT
-.messaggio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 16px;
-
-    &__text {
-        font-size: 48px;
+    .extra {
+        margin: 8px;
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 600px;
+        padding: 0;
     }
-}
-
-
-// * * * * SIDEBAR * * * *
-.sidebar {
-    @include box.box-style;
-    height: fit-content;
-    margin-top: 16px;
-    width: 100%;
-    padding: 8px;
-    line-height: 1.4;
-    grid-area: sidebar;
-
-    @media (min-width:769px) {
-        max-width: 750px;
+    
+    .punteggio {
+        // border: 1px solid salmon;
         margin-top: 16px;
-        height: 100%;
-    }
+        width: 100%;
+        text-align: left;
+        height: 10dvh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 22px;
 
-    &__title {
-        font-size: 20px;
-        font-weight: 700;
-        color: yellowgreen;
+        &__score {
+            font-size: 45px;
+            font-weight: 600;
+            margin-top: 16px;
+        }
     }
 }
+
+
+
+

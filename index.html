@@ -9,64 +9,55 @@
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- CONTAINE PRINCIPALE PAGINA -->
     <div class="container">
-        <header class="header">
-            <a href="index.html"><img src="./assets/img/logo_counter.svg" alt="logo js counter" class="header__logo"></a>
-        </header>
 
-        <div class="aside">
-            <h4 class="aside__title">CAMBIA I COLORI</h4>
-            <p class="aside__text">cambia colore testo</p>
-            <div class="selettore">
-                <div class="selettore__colore rosso"></div>
-                <div class="selettore__colore giallo"></div>
-                <div class="selettore__colore celeste"></div>
-                <div class="selettore__colore bianco"></div>
-            </div>
-            <br>
-            <h4 class="aside__title">RIMUOVI O INSERISCI SFONDO</h4>
-            <br>
-            <div class="remove__background"></div>
+        <!-- HEADER -->
+        <header class="header">
+            <h4 class="header__title-small">Benvenuto in</h4>
+            <h1 class="header__title-big">CONTATORE</h1>
+            <h3 class="header__title-medium">JavaScript</h3>
             
-        </div>
+        </header>
 
         <!-- CONTENUTO PRINCIPALE -->
         <div class="main">
-            <div class="main__bar">
-                <span>_</span>
-                <span>[]</span>
-                <span>X</span>
-            </div>
 
             <div class="main__info">
-                <p class="main__info__text">Dicono che le persone che riescono ad arrivare a 1000 hanno un QI di 145+</p>
-                <p class="main__info__text">>_<span class="square">[]</span></p>
+                <p class="main__info__text">Incrementa o decrementa il contatore</p>
             </div>
 
             <!-- div contenitore counter -->
             <div class="main__counter">
-                <span></span>
+                <p class="main__counter__text"></p>
             </div>
+
+            <!-- div contenitore bottoni -->
             <div class="main__button">
-                <!-- <button class="btn">butt</button>
-                <button class="btn">butt</button>
-                <button class="btn">butt</button> -->
+                <!-- <button class="btn">DECR</button>
+                <button class="btn">INCR</button> -->
             </div>
 
-            <div class="messaggio">
-                <p class="messaggio__text"> </p>
+            <!-- div contenitore bottone reset -->
+            <div class="main__button__reset">
+                <!-- <button class="reset">RESET</button> -->
             </div>
-        </div>
 
-        <div class="sidebar">
-            <h4 class="sidebar__title">COME FUNZIONA</h4>
-            <p class="sidebar__text">addEventListener è un metodo di JavaScript usato per associare eventi agli elementi del DOM, come click, input o pressione di tasti.
-                Permette di eseguire una funzione (callback) quando l’evento si verifica, senza sovrascrivere eventuali altri gestori.
-                A differenza di onclick, consente di aggiungere più listener allo stesso elemento e offre maggiore controllo tramite opzioni avanzate.</p>
+            <div class="extra">
+                <!-- <button class="btn">+5</button>
+                <button class="btn">+10</button> -->
+            </div>
+            <div class="punteggio">
+                Punteggio massimo: <span class="punteggio__score">100</span>
+            </div>
+
+            <div class="light">
+                <button class="light__mode"><img src="./assets/img/sun_icon.png" alt="" class="light__mode__image">LIGHT MODE</button>
+            </div>
+            
         </div>
 
     </div>
