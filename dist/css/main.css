@@ -458,6 +458,15 @@ body {
   margin-top: 16px;
 }
 
+.footer {
+  margin-top: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  align-items: center;
+}
+
 .header {
   width: 100%;
   grid-area: header;

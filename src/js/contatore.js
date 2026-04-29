@@ -7,12 +7,26 @@ document.addEventListener("DOMContentLoaded", function(){
     const buttonBox = document.querySelector(".main__button") //BOX PER BOTTONI
     const buttonBoxReset = document.querySelector(".main__button__reset") //BOX PER BOTTONE RESET
     const boxExtraButton = document.querySelector(".extra") //BOX PER MOLTIPLICATORI
+    const punteggioText = document.querySelector(".punteggio__score") //TESTO PUNTEGGIO
 
 
     // CONTATORE
     let contatore = 0;
     counterText.textContent = contatore;
-    counterText.classList.add("main__counter__text")
+    counterText.classList.add("main__counter__text");
+
+    //PUNTEGGIO MASSIMO
+    let punteggioMax = Number(localStorage.getItem("punteggioMax")) || 0;
+    punteggioText.textContent = punteggioMax;
+
+    function aggiornaPunteggioMax() {
+        if (contatore > punteggioMax) {
+            punteggioMax = contatore;
+            localStorage.setItem("punteggioMax", punteggioMax);
+            punteggioText.textContent = punteggioMax;
+        }
+    }
+    
 
     //CREAZIONE BOTTONI
     const btnIncrementa = document.createElement("button") //BOTTONE INCREMENTA
@@ -41,7 +55,8 @@ document.addEventListener("DOMContentLoaded", function(){
     //AGGIUNTA LOGICA BOTTONI
     // incrementa
     btnIncrementa.addEventListener("click", ()=> {
-        contatore = funzioni.incrementa(contatore, counterText)
+        contatore = funzioni.incrementa(contatore, counterText);
+        aggiornaPunteggioMax();
     })
 
     //decrementa
@@ -57,10 +72,12 @@ document.addEventListener("DOMContentLoaded", function(){
     // +5
     btnPiuCinque.addEventListener("click", ()=> {
         contatore = funzioni.piuCinque(contatore, counterText)
+        aggiornaPunteggioMax();
     })
 
     // +10
     btnPiuDieci.addEventListener("click", ()=>{
         contatore = funzioni.piuDieci(contatore, counterText)
+        aggiornaPunteggioMax();
     })
 })
