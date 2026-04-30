@@ -1,27 +1,49 @@
-# JavaScript Counter - Progetto corso Start2Impact
-<img src="./assets/img/logo_counter.svg"><br>
-## Descrizione
-Questo progetto è stato realizzato come esercizio di corso: l'obiettivo principale era costruire un **contatore in JavaScript** e arricchirlo con funzionalità aggiuntive.
+# JavaScript Counter - Start2Impact
+<img src="./assets/img/logo_counter.svg">
 
-L'app permette di:
-- incrementare il valore del contatore;
-- decrementare il valore del contatore;
-- resettare il contatore a `0`;
-- cambiare colore del testo della pagina;
-- attivare/disattivare lo sfondo (toggle classe CSS).
 
-## Tecnologie usate
+## Obiettivo
+
+Il progetto nasce come esercizio pratico per il percorso Start2Impact e ha l'obiettivo di realizzare un contatore interattivo con JavaScript, curando sia la logica dell'applicazione sia la struttura dell'interfaccia.
+
+L'applicazione permette di modificare il valore del contatore, salvare il punteggio massimo raggiunto e cambiare tema visivo tramite una modalita chiara.
+
+## Repository
+
+Repository GitHub: [JS_Counter_s2i](https://github.com/Salvatore1712/JS_Counter_s2i)
+
+## Funzionalita
+
+- Incremento e decremento del contatore.
+- Reset del valore a `0`.
+- Bottoni extra per aumentare il valore di `+5` e `+10`.
+- Evidenza visiva quando il valore raggiunge o supera `20`.
+- Salvataggio del punteggio massimo con `localStorage`.
+- Light mode attivabile tramite pulsante.
+- Interfaccia responsive realizzata con SCSS.
+
+## Tecnologie
+
 - HTML5
-- SCSS (Sass)
-- JavaScript (moduli ES)
+- SCSS / Sass
+- CSS3
+- JavaScript
+- LocalStorage API
 
 ## Struttura del progetto
+
 ```text
 JS_Counter_s2i/
 ├─ index.html
 ├─ README.md
+├─ package.json
 ├─ assets/
 │  └─ img/
+│     ├─ logo_counter.svg
+│     ├─ Logo_counter_new.svg
+│     ├─ logo_counter.png
+│     ├─ sun_icon.png
+│     └─ background_big.jpg
 ├─ src/
 │  ├─ js/
 │  │  ├─ contatore.js
@@ -29,61 +51,93 @@ JS_Counter_s2i/
 │  │  └─ cambio_colore.js
 │  └─ scss/
 │     ├─ main.scss
-│     ├─ pages/_home.scss
+│     ├─ abstract/
+│     ├─ base/
 │     ├─ components/
 │     ├─ layout/
-│     ├─ base/
-│     └─ abstract/
+│     └─ pages/
 ├─ dist/
 │  └─ css/
-└─ package.json
+│     ├─ main.css
+│     └─ main.css.map
+└─ css/
+   ├─ main.css
+   └─ main.css.map
+```
+
+## Come avviare il progetto
+
+Il progetto e una pagina statica. Per visualizzarlo e sufficiente aprire `index.html` nel browser.
+
+In alternativa, puoi usare un server locale dalla cartella del progetto:
+
+```bash
+python3 -m http.server 5500
+```
+
+Poi apri `http://localhost:5500` nel browser.
+
+## Compilazione SCSS
+
+Il file HTML usa il CSS compilato in `dist/css/main.css`.
+
+Per ricompilare gli stili partendo da `src/scss/main.scss`:
+
+```bash
+npx sass src/scss/main.scss dist/css/main.css --watch
 ```
 
 ## Logica JavaScript
 
-### 1) `contatore.js` (gestione UI + eventi)
-Questo file è il punto di ingresso del contatore:
-- aspetta il caricamento del DOM con `DOMContentLoaded`;
-- seleziona i nodi principali (`.main__counter`, `.main__button`, `.messaggio__text`);
-- inizializza la variabile `contatore` a `0` e aggiorna la UI;
-- crea dinamicamente 3 bottoni (`+`, `-`, `RESET`);
-- associa gli `addEventListener("click", ...)` ai bottoni;
-- delega la logica delle operazioni alle funzioni importate da `funzContatore.js`.
+### `src/js/contatore.js`
 
-In pratica, `contatore.js` si occupa di orchestrare interfaccia e interazioni.
+Gestisce l'interfaccia e gli eventi principali:
 
-### 2) `funzContatore.js` (logica del contatore)
-Contiene tre funzioni esportate:
+- aspetta il caricamento del DOM;
+- seleziona gli elementi della pagina;
+- inizializza il contatore a `0`;
+- legge il punteggio massimo salvato in `localStorage`;
+- crea dinamicamente i bottoni `DECR`, `INCR`, `RESET`, `+5` e `+10`;
+- collega i click dei bottoni alle funzioni del contatore;
+- aggiorna il punteggio massimo quando viene superato.
 
-- `incrementa(counter, box, alert)`:
-  - aumenta il contatore di 1;
-  - aggiorna il contenuto del box;
-  - se il valore arriva a `>= 20`, mostra stato "OVERLOAD" con stile rosso e testo ingrandito.
+### `src/js/funzContatore.js`
 
-- `decrementa(counter, box, alert)`:
-  - diminuisce il contatore di 1;
-  - aggiorna il box;
-  - se il valore torna sotto `20`, ripristina stile e messaggio normale.
+Contiene le funzioni operative del contatore:
 
-- `reset(counter, box)`:
-  - imposta il contatore a `0`;
-  - aggiorna il box;
-  - resetta gli stili applicati al contatore.
+- `incrementa(counter, box)`: aumenta il valore di `1`;
+- `decrementa(counter, box)`: diminuisce il valore di `1`;
+- `reset(counter, box)`: riporta il valore a `0`;
+- `piuCinque(counter, box)`: aumenta il valore di `5`;
+- `piuDieci(counter, box)`: aumenta il valore di `10`.
 
-Ogni funzione **restituisce il nuovo valore** del contatore per mantenere lo stato sincronizzato in `contatore.js`.
+Ogni funzione aggiorna il testo mostrato nella pagina e restituisce il nuovo valore del contatore, cosi lo stato rimane sincronizzato nel file principale.
 
-### 3) `cambio_colore.js` (funzioni extra)
-Questo file gestisce le funzionalità aggiuntive:
-- seleziona i "selettori colore" laterali (`rosso`, `giallo`, `celeste`, `bianco`);
-- al click, modifica `document.body.style.color`;
-- configura il bottone `.remove__background`;
-- al click del bottone esegue `document.body.classList.toggle("bg-off")`.
+Quando il valore arriva a `20` o oltre, il numero viene evidenziato in rosso.
 
-La classe `.bg-off` è definita in `src/scss/pages/_home.scss` e sostituisce lo sfondo, creando l'effetto di rimozione/inserimento.
+### `src/js/cambio_colore.js`
 
-## Note finali
-- Il progetto usa approccio modulare per separare:
-  - gestione DOM/eventi (`contatore.js`)
-  - logica applicativa (`funzContatore.js`)
-  - feature accessorie (`cambio_colore.js`)
-- Questo rende il codice più leggibile, riusabile e semplice da mantenere.
+Gestisce la modalita chiara:
+
+- seleziona il pulsante `.light__mode`;
+- al click applica o rimuove la classe `light_style` sul `body`;
+- la classe modifica sfondo e colore del testo tramite SCSS.
+
+## Stile
+
+Gli stili sono organizzati in partial SCSS:
+
+- `base`: reset e normalize;
+- `abstract`: variabili, box, selettori e light mode;
+- `layout`: header;
+- `components`: bottoni;
+- `pages`: stile della home page.
+
+Il file principale `src/scss/main.scss` importa tutte le sezioni e genera il CSS finale usato dalla pagina.
+
+<img src="./assets/img/iPhone-13-PRO-127.0.0.1 (4).png" width="100">
+<img src="./assets/img/Macbook-Air-127.0.0.1.webp" width="400">
+
+## Autore
+
+Progetto realizzato da [Salvatore De Roma](https://www.salvatorederoma.it).
