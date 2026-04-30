@@ -1,4 +1,4 @@
-import * as funzioni from "./funzContatore.js?v=2";
+import * as funzioni from "./funzContatore.js";
 
 
 document.addEventListener("DOMContentLoaded", function(){

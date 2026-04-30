@@ -1,5 +1,5 @@
 // FUNZIONE INCREMENTA CONTATORE 
-document.addEventListener("DOMContentLoaded", ()=> {
+
     export function incrementa(counter, box) {
         counter++;
         box.textContent = counter;
@@ -43,6 +43,5 @@ document.addEventListener("DOMContentLoaded", ()=> {
         box.textContent = counter;
         return counter;
     }
-})
 
 // return counter perchè la funzione deve sempre restituirmi il counter
