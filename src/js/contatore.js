@@ -1,5 +1,3 @@
-import * as funzioni from "./funzContatore.js";
-
 
 document.addEventListener("DOMContentLoaded", function(){
     // SELEZIONE ELEMENTI
@@ -55,29 +53,29 @@ document.addEventListener("DOMContentLoaded", function(){
     //AGGIUNTA LOGICA BOTTONI
     // incrementa
     btnIncrementa.addEventListener("click", ()=> {
-        contatore = funzioni.incrementa(contatore, counterText);
+        contatore = incrementa(contatore, counterText);
         aggiornaPunteggioMax();
     })
 
     //decrementa
     btnDecrementa.addEventListener("click", ()=> {
-        contatore = funzioni.decrementa(contatore, counterText)
+        contatore = decrementa(contatore, counterText)
     })
 
     //reset
     btnReset.addEventListener("click", ()=> {
-        contatore = funzioni.reset(contatore, counterText);
+        contatore = reset(contatore, counterText);
     })
 
     // +5
     btnPiuCinque.addEventListener("click", ()=> {
-        contatore = funzioni.piuCinque(contatore, counterText)
+        contatore = piuCinque(contatore, counterText)
         aggiornaPunteggioMax();
     })
 
     // +10
     btnPiuDieci.addEventListener("click", ()=>{
-        contatore = funzioni.piuDieci(contatore, counterText)
+        contatore = piuDieci(contatore, counterText)
         aggiornaPunteggioMax();
     })
 })
