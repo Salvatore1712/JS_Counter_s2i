@@ -1,5 +1,5 @@
 # JavaScript Counter - Start2Impact
-<img src="./assets/img/logo_counter.svg">
+<img src="./assets/img/logo_counter2.svg">
 
 
 ## Obiettivo
