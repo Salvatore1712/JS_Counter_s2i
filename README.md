@@ -1,7 +1,6 @@
 # JavaScript Counter - Start2Impact
 <img src="./assets/img/logo_counter2.svg">
 
-
 ## Obiettivo
 
 Il progetto nasce come esercizio pratico per il percorso Start2Impact e ha l'obiettivo di realizzare un contatore interattivo con JavaScript, curando sia la logica dell'applicazione sia la struttura dell'interfaccia.
@@ -36,33 +35,41 @@ Repository GitHub: [JS_Counter_s2i](https://github.com/Salvatore1712/JS_Counter_
 JS_Counter_s2i/
 ├─ index.html
 ├─ README.md
-├─ package.json
 ├─ assets/
 │  └─ img/
+│     ├─ favicon/
 │     ├─ logo_counter.svg
-│     ├─ Logo_counter_new.svg
-│     ├─ logo_counter.png
-│     ├─ sun_icon.png
-│     └─ background_big.jpg
-├─ src/
-│  ├─ js/
-│  │  ├─ contatore.js
-│  │  ├─ funzContatore.js
-│  │  └─ cambio_colore.js
-│  └─ scss/
-│     ├─ main.scss
-│     ├─ abstract/
-│     ├─ base/
-│     ├─ components/
-│     ├─ layout/
-│     └─ pages/
-├─ dist/
-│  └─ css/
-│     ├─ main.css
-│     └─ main.css.map
-└─ css/
-   ├─ main.css
-   └─ main.css.map
+│     ├─ logo_counter2.svg
+│     └─ sun_icon.png
+├─ css/
+│  ├─ main.css
+│  └─ main.css.map
+└─ src/
+   ├─ js/
+   │  ├─ contatore.js
+   │  ├─ funzContatore.js
+   │  └─ cambio_colore.js
+   └─ scss/
+      ├─ main.scss
+      ├─ abstract/
+      │  ├─ _box.scss
+      │  ├─ _index.scss
+      │  ├─ _light_mode.scss
+      │  ├─ _selettori.scss
+      │  └─ _variables.scss
+      ├─ base/
+      │  ├─ _index.scss
+      │  ├─ _normalize.scss
+      │  └─ _reset.scss
+      ├─ components/
+      │  ├─ _button.scss
+      │  └─ _index.scss
+      ├─ layout/
+      │  ├─ _header.scss
+      │  └─ _index.scss
+      └─ pages/
+         ├─ _home.scss
+         └─ index.scss
 ```
 
 ## Come avviare il progetto
@@ -79,12 +86,22 @@ Poi apri `http://localhost:5500` nel browser.
 
 ## Compilazione SCSS
 
-Il file HTML usa il CSS compilato in `dist/css/main.css`.
+Gli stili SCSS vengono compilati in `css/main.css`, che e il file referenziato dall'HTML.
 
-Per ricompilare gli stili partendo da `src/scss/main.scss`:
+La compilazione avviene tramite l'estensione **Live Sass Compiler** di VS Code. Per avviarla clicca su **Watch Sass** nella barra di stato in basso.
 
-```bash
-npx sass src/scss/main.scss dist/css/main.css --watch
+La configurazione e definita in `.vscode/settings.json`:
+
+```json
+{
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/css"
+    }
+  ]
+}
 ```
 
 ## Logica JavaScript
