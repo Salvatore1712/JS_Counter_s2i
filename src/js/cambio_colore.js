@@ -3,8 +3,7 @@
 document.addEventListener("DOMContentLoaded", ()=> {
     const btnLightMode = document.querySelector(".light__mode"); //BOTTONE
     const boxContainer = document.querySelector(".container");
-    const imgBtnLight = document.querySelector(".light__mode__image")
-
+    
     //TESTO NEL BOTTONE LIGHT MODE
     btnLightMode.textContent = "LIGHT MODE";
 
