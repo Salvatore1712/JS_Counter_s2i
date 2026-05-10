@@ -90,19 +90,6 @@ Gli stili SCSS vengono compilati in `css/main.css`, che e il file referenziato d
 
 La compilazione avviene tramite l'estensione **Live Sass Compiler** di VS Code. Per avviarla clicca su **Watch Sass** nella barra di stato in basso.
 
-La configurazione e definita in `.vscode/settings.json`:
-
-```json
-{
-  "liveSassCompile.settings.formats": [
-    {
-      "format": "expanded",
-      "extensionName": ".css",
-      "savePath": "/css"
-    }
-  ]
-}
-```
 
 ## Logica JavaScript
 
