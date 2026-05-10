@@ -1,13 +1,13 @@
-//SELEZIONEE ELEMENTI
+
 
 document.addEventListener("DOMContentLoaded", ()=> {
+    //SELEZIONE ELEMENTI
     const btnLightMode = document.querySelector(".light__mode"); //BOTTONE
-    const boxContainer = document.querySelector(".container");
-    
+
     //TESTO NEL BOTTONE LIGHT MODE
     btnLightMode.textContent = "LIGHT MODE";
 
-    //LOGICA CLICK BOTToNE LIGHT MODE
+    //LOGICA CLICK BOTTONE LIGHT MODE
     btnLightMode.addEventListener("click", (event)=>{
         document.body.classList.toggle("light_style");
         // boxContainer.classList.toggle("light");
