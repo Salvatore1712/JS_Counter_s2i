@@ -34,6 +34,10 @@ function reset(counter, box){
 function piuCinque(counter, box) {
     counter += 5;
     box.textContent = counter;
+    if (counter >= 20) {
+        box.style.color = "red";
+        box.style.fontSize = "clamp(11rem, 11rem + 3dvw, 13rem)";
+    }
     return counter;
 }
 
@@ -41,6 +45,10 @@ function piuCinque(counter, box) {
 function piuDieci (counter, box){
     counter +=10;
     box.textContent = counter;
+    if (counter >= 20) {
+        box.style.color = "red";
+        box.style.fontSize = "clamp(11rem, 11rem + 3dvw, 13rem)";
+    }
     return counter;
 }
 
